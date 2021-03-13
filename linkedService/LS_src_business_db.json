@@ -1,0 +1,12 @@
+{
+	"name": "LS_src_business_db",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=newservertarun.database.windows.net;initial catalog=tarunsrcdb;user id=tarun",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERlRBUlVOQ0hfN2RjMjBiOGYtZmQ1My00ZGE5LWFjNTItM2FjMTdjZjlkOGFjIg0KfQ=="
+		}
+	}
+}
