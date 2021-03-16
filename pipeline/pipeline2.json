@@ -39,17 +39,17 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[USP_Insert_Postal_Branch_Detail]",
+					"storedProcedureName": "[dbo].[USP_Insert_Postal_Branch_D]",
 					"storedProcedureParameters": {
 						"block": {
 							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Block",
 							"type": "String"
 						},
-						"BranchName": {
+						"Name": {
 							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Name",
 							"type": "String"
 						},
-						"BranchDesc": {
+						"Description": {
 							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Description",
 							"type": "String"
 						},
