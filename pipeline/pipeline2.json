@@ -1,0 +1,102 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://api.postalpincode.in/pincode/500011",
+					"method": "GET"
+				}
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[USP_Insert_Postal_Branch_Details]",
+					"storedProcedureParameters": {
+						"block": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Block",
+							"type": "String"
+						},
+						"name": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].BranchName",
+							"type": "String"
+						},
+						"Description": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].BranchDesc",
+							"type": "String"
+						},
+						"BranchType": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].BranchType",
+							"type": "String"
+						},
+						"DeliveryStatus": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].DeliveryStatus",
+							"type": "String"
+						},
+						"Circle": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Circle",
+							"type": "String"
+						},
+						"District": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].District",
+							"type": "String"
+						},
+						"Division": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Division",
+							"type": "String"
+						},
+						"Region": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Region",
+							"type": "String"
+						},
+						"State": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].State",
+							"type": "String"
+						},
+						"Country": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Country",
+							"type": "String"
+						},
+						"Pincode": {
+							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Pincode",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_src_business_db",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
