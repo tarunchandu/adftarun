@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup1').output.firstRow",
+						"value": "@activity('Lookup1').output.pincode",
 						"type": "Expression"
 					},
 					"isSequential": false,
@@ -54,7 +54,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "tarun",
+						"value": "1"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",

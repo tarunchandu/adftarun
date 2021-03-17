@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "@concat('https://api.postalpincode.in/pincode/',pipeline().parameters.PinCode)",
+					"url": "@concat('https://api.postalpincode.in/pincode/',pipeline().parameters.Pincode)",
 					"method": "GET"
 				}
 			},
