@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://api.postalpincode.in/pincode/500011",
+					"url": "@concat('https://api.postalpincode.in/pincode/',pipeline().parameters.PinCode)",
 					"method": "GET"
 				}
 			},
@@ -42,51 +42,87 @@
 					"storedProcedureName": "[dbo].[USP_Insert_Postal_Branch_D]",
 					"storedProcedureParameters": {
 						"block": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Block",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Block",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Name": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Name",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Name",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Description": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Description",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Description",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"BranchType": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].BranchType",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].BranchType",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"DeliveryStatus": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].DeliveryStatus",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].DeliveryStatus",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Circle": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Circle",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Circle",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"District": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].District",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].District",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Division": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Division",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Division",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Region": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Region",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Region",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"State": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].State",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].State",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Country": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Country",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Country",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"Pincode": {
-							"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Pincode",
+							"value": {
+								"value": "@json(activity('Web1').output.response)[0].PostOffice[0].Pincode",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
@@ -97,6 +133,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"Pincode": {
+				"type": "string",
+				"defaultValue": "500011"
+			}
+		},
 		"annotations": []
 	}
 }
