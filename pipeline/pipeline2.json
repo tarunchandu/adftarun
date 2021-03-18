@@ -15,7 +15,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "@concat('https://api.postalpincode.in/pincode/',pipeline().parameters.Pincode)",
+					"url": {
+						"value": "@concat('https://api.postalpincode.in/pincode/',pipeline().parameters.Pincode)",
+						"type": "Expression"
+					},
 					"method": "GET"
 				}
 			},
@@ -135,8 +138,7 @@
 		],
 		"parameters": {
 			"Pincode": {
-				"type": "string",
-				"defaultValue": "500011"
+				"type": "string"
 			}
 		},
 		"annotations": []
