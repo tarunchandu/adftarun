@@ -1,0 +1,29 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-82.eastus.logic.azure.com:443/workflows/e557cfdf355e4ed8b1263985a5c8c0af/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4xcV1JAx-ESQgZDetIWIG7_KTSP2sitPTGEWahcbpTM",
+					"method": "POST",
+					"body": {
+						"value": "{ \n\"title\" : \" SUCCESS\",\n\"message\"  : \"Load Completed\",\n\"datafactoryname\" : \"@{pipeline().DataFactory}\",\n\"pipeline\": \"@{pipeline().Pipeline} \",\n\"time\":\"@{utcnow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
